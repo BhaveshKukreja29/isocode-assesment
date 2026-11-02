@@ -123,6 +123,9 @@ class AdminCity(CityCharges):
 class Inspection(BaseModel):
     score: Annotated[int, Field(ge=0, le=100)]
     checked_on: date
+    accident_free: bool = False
+    flood_free: bool = False
+    service_history: Annotated[str, StringConstraints(max_length=60)] | None = None
     items: list[dict[str, Any]] = Field(default_factory=list, max_length=60)
 
 

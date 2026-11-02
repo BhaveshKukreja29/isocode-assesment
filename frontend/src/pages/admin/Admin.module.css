@@ -1,0 +1,233 @@
+.page {
+  width: min(1240px, 100% - 2rem);
+  margin-inline: auto;
+  padding-block: 1.5rem 4rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tab {
+  flex-shrink: 0;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.tab:hover {
+  background: var(--sunken);
+}
+
+.tab[aria-current='page'] {
+  background: var(--ink);
+  color: #fff;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.head h1 {
+  font-size: 1.6rem;
+}
+
+.head p {
+  max-width: 62ch;
+  margin-top: 0.35rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  background: var(--bg);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table tbody tr[data-clickable] {
+  cursor: pointer;
+}
+
+.table tbody tr[data-clickable]:hover {
+  background: var(--bg);
+}
+
+.cellInput {
+  width: 120px;
+  height: 36px;
+  padding: 0 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.cellInput:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgb(198 244 50 / 0.55);
+}
+
+.cellInput[data-dirty] {
+  background: #f6fde0;
+  border-color: #a9d21f;
+}
+
+.cellInput[data-empty] {
+  border-style: dashed;
+}
+
+.small {
+  width: 90px;
+}
+
+.bar {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: rgb(255 255 255 / 0.95);
+  backdrop-filter: blur(8px);
+}
+
+.ok {
+  color: var(--ok);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 560px), 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.rows {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.rowEdit {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 0.7fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.rowEdit select,
+.rowEdit input {
+  width: 100%;
+  height: 38px;
+  padding: 0 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.iconBtn {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--sunken);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.section {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.section h3 {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .grid3,
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  .rowEdit {
+    grid-template-columns: 1fr 1fr;
+  }
+}

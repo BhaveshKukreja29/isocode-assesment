@@ -50,4 +50,7 @@ export function istDay(offsetDays = 0) {
   return d.toLocaleDateString('en-CA', { timeZone: IST })
 }
 
-export const titleCase = (s: string) => s.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+const ACRONYMS: Record<string, string> = { cng: 'CNG', ev: 'EV' }
+
+export const titleCase = (s: string) =>
+  ACRONYMS[s] ?? s.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
