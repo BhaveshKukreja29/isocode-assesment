@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     jwt_ttl_minutes: int = 12 * 60
     cookie_secure: bool = False
     cors_origins: list[str] = ["http://localhost:5173"]
+    public_site_url: str = "http://localhost:5173"
 
     groq_api_key: str | None = None
     groq_model: str = "llama-3.1-8b-instant"

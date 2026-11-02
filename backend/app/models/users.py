@@ -29,3 +29,7 @@ class User(Timestamped, Base):
     showroom: Mapped[Showroom | None] = relationship()
     # Models a consultant specialises in; empty means "sells everything".
     models: Mapped[list[CarModel]] = relationship(secondary=consultant_models)
+
+    @property
+    def model_ids(self) -> list[int]:
+        return [m.id for m in self.models]

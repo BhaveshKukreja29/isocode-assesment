@@ -37,3 +37,11 @@ class UsedCar(Timestamped, Base):
     is_published: Mapped[bool] = mapped_column(default=True)
 
     showroom: Mapped[Showroom] = relationship(lazy="joined")
+
+    @property
+    def image(self) -> str | None:
+        return self.images[0] if self.images else None
+
+    @property
+    def location(self) -> str:
+        return self.showroom.name

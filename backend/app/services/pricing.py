@@ -70,3 +70,21 @@ def on_road_price(
     if pack:
         items.append(LineItem("accessories", pack.price, label=pack.name))
     return OnRoadPrice(items)
+
+
+def validate_slabs(slabs: list) -> list[str]:
+    """Each fuel's slabs must start at ₹0, touch end-to-start, and end open-ended."""
+    problems = []
+    by_fuel: dict[Fuel, list] = {}
+    for slab in slabs:
+        by_fuel.setdefault(slab.fuel, []).append(slab)
+    for fuel, group in by_fuel.items():
+        group.sort(key=lambda s: s.min_price)
+        if group[0].min_price != 0:
+            problems.append(f"{fuel}: first slab must start at ₹0")
+        for prev, nxt in zip(group, group[1:], strict=False):
+            if prev.max_price != nxt.min_price:
+                problems.append(f"{fuel}: gap or overlap at ₹{prev.max_price}")
+        if any(s.max_price is None for s in group[:-1]) or group[-1].max_price is not None:
+            problems.append(f"{fuel}: only the last slab may be open-ended")
+    return problems

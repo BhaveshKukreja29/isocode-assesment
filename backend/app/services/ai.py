@@ -245,11 +245,11 @@ async def _call_llm(ctx: LeadContext) -> LLMOutput:
     return LLMOutput.model_validate_json(content)
 
 
-async def analyse(ctx: LeadContext) -> AIResult:
+async def analyse(ctx: LeadContext, *, use_llm: bool = True) -> AIResult:
     fallback_summary = rules_summary(ctx)
     flags: list[str] = []
 
-    if get_settings().groq_api_key:
+    if use_llm and get_settings().groq_api_key:
         try:
             out = await _call_llm(ctx)
         except (httpx.HTTPError, ValidationError, KeyError, ValueError) as exc:

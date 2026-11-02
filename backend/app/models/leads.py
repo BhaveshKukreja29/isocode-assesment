@@ -49,8 +49,23 @@ class Lead(Timestamped, Base):
     showroom: Mapped[Showroom | None] = relationship(lazy="joined")
     assigned_to: Mapped[User | None] = relationship(foreign_keys=[assigned_to_id], lazy="joined")
     events: Mapped[list["LeadEvent"]] = relationship(
-        cascade="all, delete-orphan", order_by="LeadEvent.created_at"
+        cascade="all, delete-orphan", order_by="(LeadEvent.created_at, LeadEvent.id)"
     )
+    test_drives: Mapped[list["TestDrive"]] = relationship(
+        cascade="all, delete-orphan", order_by="TestDrive.starts_at"
+    )
+
+    @property
+    def subject(self) -> str | None:
+        """What the buyer is interested in, for lists and messages."""
+        if self.used_car:
+            car = self.used_car
+            return f"{car.year} {car.make} {car.model} {car.variant}"
+        return self.model.name if self.model else None
+
+    @property
+    def headline(self) -> str | None:
+        return (self.ai_summary or {}).get("headline")
 
 
 class LeadEvent(Timestamped, Base):

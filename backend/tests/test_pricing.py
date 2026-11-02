@@ -4,7 +4,7 @@ import pytest
 
 from app.models import AccessoryPack, City, RoadTaxSlab
 from app.models.enums import Fuel
-from app.services.pricing import PricingError, on_road_price, percent_of
+from app.services.pricing import PricingError, on_road_price, percent_of, validate_slabs
 
 
 @pytest.fixture
@@ -78,3 +78,27 @@ def test_invalid_price_rejected(lucknow):
 def test_percent_rounds_half_up():
     assert percent_of(1_23_450, Decimal("3.5")) == 4_321  # 4320.75
     assert percent_of(10, Decimal("5")) == 1  # 0.5 -> 1
+
+
+def slab(fuel, lo, hi, rate="8"):
+    return RoadTaxSlab(fuel=fuel, min_price=lo, max_price=hi, rate=Decimal(rate))
+
+
+def test_valid_slabs_pass():
+    assert (
+        validate_slabs([slab(Fuel.PETROL, 10_00_000, None), slab(Fuel.PETROL, 0, 10_00_000)]) == []
+    )
+
+
+@pytest.mark.parametrize(
+    "slabs",
+    [
+        [slab(Fuel.PETROL, 1, None)],
+        [slab(Fuel.PETROL, 0, 5_00_000), slab(Fuel.PETROL, 6_00_000, None)],
+        [slab(Fuel.PETROL, 0, None), slab(Fuel.PETROL, 5_00_000, None)],
+        [slab(Fuel.PETROL, 0, 5_00_000)],
+    ],
+    ids=["not-from-zero", "gap", "two-open-ended", "closed-top"],
+)
+def test_invalid_slabs_rejected(slabs):
+    assert validate_slabs(slabs)
