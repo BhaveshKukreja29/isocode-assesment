@@ -1,0 +1,80 @@
+.field {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.control {
+  width: 100%;
+  height: 46px;
+  padding: 0 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  font-size: 16px; /* 16px stops iOS zooming into inputs */
+  transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+
+.control:hover {
+  border-color: #cfcfc8;
+}
+
+.control:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgb(198 244 50 / 0.55);
+}
+
+[data-invalid] .control {
+  border-color: var(--danger);
+}
+
+.select {
+  appearance: none;
+  padding-right: 2.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='m1 1.5 5 5 5-5' stroke='%23111' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+}
+
+.textarea {
+  height: auto;
+  min-height: 96px;
+  padding-block: 0.7rem;
+  resize: vertical;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--ink-3);
+}
+
+.error {
+  font-size: 0.8rem;
+  color: var(--danger);
+}
+
+.check {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.65rem;
+  align-items: start;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+
+.check input {
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  accent-color: var(--ink);
+}
+
+.check .error {
+  grid-column: 2;
+}

@@ -1,0 +1,218 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, 1fr);
+  gap: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+  padding-block: 2rem 4rem;
+}
+
+.main {
+  display: grid;
+  gap: 2.25rem;
+  align-content: start;
+}
+
+.photoNote {
+  margin-top: -1.5rem;
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--line);
+}
+
+.highlights li {
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.description {
+  max-width: 60ch;
+  font-size: 1.1rem;
+  color: var(--ink-2);
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.swatches li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.15);
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1px;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--line);
+}
+
+.specs div {
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+}
+
+.specs dt {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+
+.specs dd {
+  margin: 0.15rem 0 0;
+  font-weight: 600;
+}
+
+.side {
+  min-width: 0;
+}
+
+.sticky {
+  position: sticky;
+  top: calc(var(--header-h) + 1.25rem);
+  display: grid;
+  gap: 1.25rem;
+}
+
+.name {
+  font-size: clamp(2.2rem, 1.6rem + 2vw, 3.2rem);
+}
+
+.variants {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.variants legend {
+  margin-bottom: 0.6rem;
+}
+
+.variantList {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.variantChip {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-content: stretch;
+  gap: 0 1rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--r-sm);
+  text-align: left;
+}
+
+.variantName {
+  font-weight: 600;
+}
+
+.variantMeta {
+  grid-row: 2;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.variantPrice {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  align-self: center;
+  font-weight: 600;
+}
+
+.ctas {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: center;
+}
+
+.bottomBar {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+    padding-bottom: 6rem;
+  }
+
+  .side {
+    order: -1;
+  }
+
+  .sticky {
+    position: static;
+  }
+
+  .main {
+    display: contents;
+  }
+
+  .main > :first-child {
+    order: -2;
+  }
+
+  .photoNote {
+    order: -2;
+    margin-top: -1rem;
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+
+  /* A price and a next step always in reach on phones. */
+  .bottomBar {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom));
+    background: rgb(250 250 247 / 0.92);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+  }
+
+  .bottomBar div {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .bottomBar strong {
+    font-size: 1.15rem;
+  }
+}

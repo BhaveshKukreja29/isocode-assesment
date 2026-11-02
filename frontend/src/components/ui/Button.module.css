@@ -1,0 +1,103 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform 0.15s var(--ease),
+    background-color 0.15s var(--ease),
+    border-color 0.15s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sm {
+  height: 34px;
+  padding-inline: 0.9rem;
+  font-size: 0.85rem;
+}
+
+.md {
+  height: 44px;
+  padding-inline: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.lg {
+  height: 54px;
+  padding-inline: 1.75rem;
+  font-size: 1.05rem;
+}
+
+.block {
+  width: 100%;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.primary:hover:not(:disabled) {
+  background: #b5e61f;
+}
+
+.dark {
+  background: var(--ink);
+  color: #fff;
+}
+
+.dark:hover:not(:disabled) {
+  background: #2a2b2e;
+}
+
+.outline {
+  background: transparent;
+  border-color: currentColor;
+}
+
+.outline:hover:not(:disabled) {
+  background: rgb(127 127 127 / 0.08);
+}
+
+.ghost {
+  background: transparent;
+}
+
+.ghost:hover:not(:disabled) {
+  background: rgb(127 127 127 / 0.1);
+}
+
+.danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: currentColor;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,113 @@
+.receipt {
+  display: grid;
+  gap: 1.1rem;
+  padding: 1.5rem;
+  border-radius: var(--r-lg);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lines {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  transition: opacity 0.15s var(--ease);
+}
+
+.lines[data-stale] {
+  opacity: 0.55;
+}
+
+.line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+}
+
+/* Dotted leader between label and amount, like a printed receipt. */
+.line::after {
+  content: '';
+  order: 1;
+  flex: 1;
+  border-bottom: 1px dotted var(--dark-line);
+  transform: translateY(-4px);
+}
+
+.line dt {
+  color: var(--dark-ink-2);
+}
+
+.line dd {
+  order: 2;
+  margin: 0;
+}
+
+.rate {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--dark-line);
+  font-weight: 600;
+}
+
+.total strong {
+  font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+
+.packs {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.packLegend {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--dark-ink-2);
+}
+
+.packChip {
+  background: var(--dark-2);
+  border-color: var(--dark-line);
+  color: var(--dark-ink);
+  font-size: 0.82rem;
+}
+
+.packChip[aria-pressed='true'] {
+  background: var(--dark-ink);
+  color: var(--dark);
+}
+
+.packChip[aria-pressed='true'] :global(.muted) {
+  color: var(--ink-2);
+}
+
+.foot {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--dark-ink-2);
+}
+
+.valid {
+  font: 600 0.75rem/1.4 var(--mono);
+  color: var(--dark-ink);
+}
+
+.unavailable {
+  color: var(--dark-ink-2);
+}

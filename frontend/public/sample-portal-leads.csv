@@ -1,0 +1,7 @@
+name,phone,email,model,message,portal,ref,received_at
+Abhishek Tandon,9839123401,abhishek.t@example.com,Model H,Looking for diesel automatic SUV under 15 lakh. Need loan.,CarPortal,CP-88121,2026-11-03T09:12:00+05:30
+Nidhi Awasthi,+91 94150 22334,,Model S,First car for daughter. Automatic preferred.,AutoBazaar,AB-5512,2026-11-03T09:40:00+05:30
+Rakesh Bhatia,09935044556,rakesh@example.com,model-c,Sedan for family. Petrol. This month.,CarPortal,CP-88130,
+Nidhi Awasthi,9415022334,,Model S,Duplicate of row 3 from another portal,CarPortal,CP-88131,
+Bad Number,12345,,Model E,,AutoBazaar,AB-5520,
+Sunita Kapoor,9792011122,not-an-email,Model E,EV range question,AutoBazaar,AB-5521,

@@ -1,0 +1,95 @@
+.sheet {
+  width: min(520px, 100vw - 2rem);
+  max-height: min(88vh, 900px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.25);
+}
+
+.wide {
+  width: min(760px, 100vw - 2rem);
+}
+
+.sheet::backdrop {
+  background: rgb(10 10 10 / 0.45);
+}
+
+.sheet[open] {
+  animation: rise 0.22s var(--ease);
+}
+
+.sheet[open]::backdrop {
+  animation: fade 0.22s var(--ease);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--sunken);
+}
+
+.body {
+  overflow: auto;
+  padding: 1.25rem;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 640px) {
+  .sheet,
+  .wide {
+    width: 100vw;
+    max-width: 100vw;
+    margin: auto 0 0;
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .sheet[open] {
+    animation-name: slide;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}

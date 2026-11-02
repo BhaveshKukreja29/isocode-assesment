@@ -1,0 +1,57 @@
+.page {
+  display: grid;
+  gap: 2rem;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.list li:last-child {
+  border-bottom: 0;
+}
+
+.list p {
+  font-size: 0.85rem;
+}
+
+.when {
+  margin-top: 0.25rem;
+  font-weight: 600;
+}
+
+.danger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+}

@@ -1,0 +1,89 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
+  contain: layout paint;
+}
+
+a.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.mediaWrap {
+  position: relative;
+}
+
+.media img {
+  transition:
+    opacity 0.35s var(--ease),
+    transform 0.4s var(--ease);
+}
+
+a.card:hover .media img {
+  transform: scale(1.03);
+}
+
+.stock {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  gap: 0.35rem;
+}
+
+.body {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.1rem 1.2rem 1.3rem;
+}
+
+.title {
+  font-size: 1.25rem;
+}
+
+.variant {
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.price {
+  margin-top: 0.25rem;
+}
+
+.price strong {
+  font-size: 1.15rem;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.facts span + span::before {
+  content: '·';
+  margin-right: 0.75rem;
+  color: var(--ink-3);
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.priceRow strong {
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}

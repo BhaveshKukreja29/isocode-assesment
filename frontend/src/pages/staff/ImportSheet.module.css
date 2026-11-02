@@ -1,0 +1,41 @@
+.sample {
+  justify-self: start;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.result {
+  display: grid;
+  gap: 1rem;
+}
+
+.counts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.counts span {
+  display: grid;
+  padding: 0.75rem;
+  border-radius: var(--r);
+  background: var(--sunken);
+}
+
+.counts strong {
+  font-size: 1.5rem;
+}
+
+.errors {
+  display: grid;
+  gap: 0.4rem;
+  max-height: 220px;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--danger);
+}

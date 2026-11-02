@@ -1,0 +1,31 @@
+.card {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.error {
+  padding: 0.75rem 1rem;
+  border-radius: var(--r-sm);
+  background: #fde4df;
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+.switch {
+  justify-self: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.demo {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--line);
+}
