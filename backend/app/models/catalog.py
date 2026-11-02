@@ -81,7 +81,9 @@ class Variant(Base):
     __tablename__ = "variants"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    model_id: Mapped[int] = mapped_column(ForeignKey("car_models.id", ondelete="CASCADE"), index=True)
+    model_id: Mapped[int] = mapped_column(
+        ForeignKey("car_models.id", ondelete="CASCADE"), index=True
+    )
     name: Mapped[str] = mapped_column(String(60))
     fuel: Mapped[Fuel] = mapped_column(db_enum(Fuel))
     transmission: Mapped[Transmission] = mapped_column(db_enum(Transmission))
@@ -97,7 +99,9 @@ class Colour(Base):
     __tablename__ = "colours"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    model_id: Mapped[int] = mapped_column(ForeignKey("car_models.id", ondelete="CASCADE"), index=True)
+    model_id: Mapped[int] = mapped_column(
+        ForeignKey("car_models.id", ondelete="CASCADE"), index=True
+    )
     name: Mapped[str] = mapped_column(String(40))
     hex: Mapped[str] = mapped_column(String(7))
 
@@ -106,7 +110,9 @@ class AccessoryPack(Base):
     __tablename__ = "accessory_packs"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    model_id: Mapped[int] = mapped_column(ForeignKey("car_models.id", ondelete="CASCADE"), index=True)
+    model_id: Mapped[int] = mapped_column(
+        ForeignKey("car_models.id", ondelete="CASCADE"), index=True
+    )
     name: Mapped[str] = mapped_column(String(60))
     items: Mapped[list[Any]] = mapped_column(default=list)
     price: Mapped[int]
