@@ -193,7 +193,10 @@ export default function TestDrive() {
               onSubmit={(values) =>
                 booking.mutate(
                   { ...values, demo_car_id: demoCarId!, starts_at: slot! },
-                  { onError: (error) => error instanceof ApiError && error.status === 409 && setSlot(undefined) },
+                  {
+                    onSuccess: () => window.scrollTo({ top: 0 }),
+                    onError: (error) => error instanceof ApiError && error.status === 409 && setSlot(undefined),
+                  },
                 )
               }
             />

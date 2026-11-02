@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { CardSkeleton, UsedCarCard } from '@/components/car/Cards'
 import { CitySelect } from '@/components/car/CitySelect'
 import { ModelGrid } from '@/components/car/ModelGrid'
@@ -48,12 +49,12 @@ export default function Home() {
           <div className={s.heroMedia}>
             <Img src={HERO} alt="Brand X Model H" priority ratio="4 / 3" sizes="(max-width: 900px) 100vw, 600px" className={s.heroImg} />
             {hero?.from_price && (
-              <a href="/cars/model-h" className={s.floatTag}>
+              <Link to="/cars/model-h" className={s.floatTag}>
                 <span className="eyebrow">Model H · {cityName}</span>
                 <strong className="num">
                   {t('common.from')} {lakh(hero.from_price)}
                 </strong>
-              </a>
+              </Link>
             )}
           </div>
         </div>

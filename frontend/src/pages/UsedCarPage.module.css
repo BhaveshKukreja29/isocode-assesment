@@ -11,17 +11,18 @@
 .facts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1px;
   margin: 0;
   border: 1px solid var(--line);
   border-radius: var(--r);
   overflow: hidden;
-  background: var(--line);
+  background: var(--surface);
 }
 
 .facts div {
+  margin: 0 -1px -1px 0;
   padding: 0.75rem 0.9rem;
-  background: var(--surface);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .facts dt {
@@ -98,7 +99,7 @@
   font-size: 0.9rem;
 }
 
-.items li .muted {
+.items li :global(.muted) {
   grid-column: 2;
   font-size: 0.8rem;
 }

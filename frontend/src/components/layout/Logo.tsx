@@ -7,7 +7,7 @@ export function Logo() {
       </svg>
       <span>
         Company A
-        <span style={{ fontWeight: 400, opacity: 0.6 }}> · Brand X</span>
+        <span className="logo-sub"> · Brand X</span>
       </span>
     </span>
   )

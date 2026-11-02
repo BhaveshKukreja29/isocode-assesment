@@ -69,17 +69,19 @@
 .specs {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 1px;
   margin: 0;
   border: 1px solid var(--line);
   border-radius: var(--r);
   overflow: hidden;
-  background: var(--line);
+  background: var(--surface);
 }
 
+/* Right/bottom hairlines; the container clips the outer ones, so no filler cells show. */
 .specs div {
+  margin: 0 -1px -1px 0;
   padding: 0.9rem 1rem;
-  background: var(--surface);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .specs dt {

@@ -44,6 +44,7 @@
 }
 
 .out {
+  white-space: nowrap;
   height: 32px;
   padding-inline: 0.8rem;
   border: 1px solid var(--dark-line);

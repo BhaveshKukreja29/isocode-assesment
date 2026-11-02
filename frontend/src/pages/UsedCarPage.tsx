@@ -39,12 +39,12 @@ function UsedCarView({ car }: { car: UsedCarDetail }) {
   const booked = car.status === 'booked'
 
   const facts: [string, string][] = [
-    [t('filters.year'), String(car.year)],
-    [t('filters.km'), km(car.km)],
+    [t('used.year'), String(car.year)],
+    [t('used.km'), km(car.km)],
     [t('filters.fuel'), t(`fuel.${car.fuel}` as MessageKey)],
     [t('filters.transmission'), t(`tx.${car.transmission}` as MessageKey)],
     [t('filters.owners'), ownerLabel(t, car.owners)],
-    [t('model.colours'), car.colour],
+    [t('used.colour'), car.colour],
     [t('used.registration'), car.registration],
   ]
 

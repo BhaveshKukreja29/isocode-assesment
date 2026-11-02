@@ -206,3 +206,14 @@ button {
 .gap-sm {
   --gap: 0.5rem;
 }
+
+.logo-sub {
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+@media (max-width: 480px) {
+  .logo-sub {
+    display: none;
+  }
+}

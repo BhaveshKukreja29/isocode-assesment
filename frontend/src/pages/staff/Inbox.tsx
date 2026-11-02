@@ -15,7 +15,7 @@ import s from './Inbox.module.css'
 
 const SCOPES: [LeadFilters['scope'], string][] = [
   ['mine', 'Mine'],
-  ['showroom', 'My showroom'],
+  ['showroom', 'Showroom'],
   ['unassigned', 'Unassigned'],
   ['all', 'All'],
 ]
