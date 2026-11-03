@@ -5,8 +5,7 @@ services:
     rootDir: backend
     plan: free
     buildCommand: pip install uv && uv sync --frozen --no-dev
-    preDeployCommand: uv run alembic upgrade head && uv run python -m app.seed
-    startCommand: uv run uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips '*'
+    startCommand: uv run alembic upgrade head && uv run python -m app.seed && uv run uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips '*'
     healthCheckPath: /api/health
     envVars:
       - key: PYTHON_VERSION

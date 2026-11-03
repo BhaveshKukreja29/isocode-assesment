@@ -66,8 +66,7 @@ The browser only ever talks to the Vercel domain, so the session cookie is first
 - `company-a-db`: PostgreSQL
 - `company-a-api`: Python web service in `backend/`
   - build: `uv sync --frozen --no-dev`
-  - pre-deploy: `alembic upgrade head` then `python -m app.seed` (the seed skips itself when data already exists)
-  - start: `uvicorn app.main:app` behind Render's proxy
+  - start: `alembic upgrade head`, then `python -m app.seed` (skips itself when data already exists), then `uvicorn app.main:app` behind Render's proxy. Migrations run in the start command because pre-deploy commands are paid-only on Render
   - health check: `/api/health`
 
 **Web on Vercel.** Import the repository, set the root directory to `frontend` (framework preset: Vite). `frontend/vercel.json` holds the API rewrites, SPA fallback, long-lived caching for hashed assets and security headers. If the Render service gets a different URL than `company-a-api.onrender.com`, update the two rewrite destinations in `vercel.json`.

@@ -75,7 +75,7 @@ Create `src/pages/X.tsx` with a default export, then add a lazy route in `src/ap
 - `uv run python -m app.seed` refuses to run on a non-empty database. Use `--reset` locally. Never use `--reset` in production.
 - The partial unique index on `test_drives` is what prevents double booking. Don't replace it with an application-level check.
 - Consultants get 404 (not 403) for leads outside their scope. That's intentional.
-- Render's free Postgres expires after 30 days. Upgrade the plan, or recreate it and redeploy (pre-deploy migrates and seeds).
+- Render's free Postgres expires after 30 days. Upgrade the plan, or recreate it and redeploy (the start command migrates and seeds).
 
 ## Known gaps / backlog (most valuable first)
 
