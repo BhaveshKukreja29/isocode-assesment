@@ -106,7 +106,7 @@ Everything is logged on the lead timeline.
 ## 5. How the AI works, and what happens when it is wrong or unsure
 
 1. **Input:** the lead's message, kind, source, model or used car, showroom, consultant, booked slot and trade-in details.
-2. **LLM call:** Groq `llama-3.1-8b-instant` in JSON mode at temperature 0.2 with an 8-second timeout. The prompt asks for a structured summary (headline, interest, budget, timeline, finance, trade-in, preferences, questions to ask) and a short first reply. It forbids discounts and prices, and tells the model to treat the buyer's text as data, not instructions.
+2. **LLM call:** Groq `qwen/qwen3.8-27b` in JSON mode at temperature 0.2 with an 8-second timeout. The prompt asks for a structured summary (headline, interest, budget, timeline, finance, trade-in, preferences, questions to ask) and a short first reply. It forbids discounts and prices, and tells the model to treat the buyer's text as data, not instructions.
 3. **Validation:** the output must match a Pydantic schema. If it doesn't, the rules fallback is used.
 4. **Guardrails:** the draft is scanned for discount, offer and cashback wording and for any rupee amount or percentage. If either appears, the summary is kept but the draft is replaced with a safe template, and the reason is shown to the consultant.
 5. **Fallback:** no API key, timeout, HTTP error or malformed output all lead to a deterministic keyword-based summary and template draft. Both handle Hinglish keywords for budget ("12 lakh"), timeline ("Diwali", "this week"), loan, exchange and preferences.

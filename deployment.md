@@ -87,7 +87,7 @@ Names only. Values live in the hosting dashboards or a local `.env`, never in gi
 | `PUBLIC_SITE_URL` | prod | Public web origin, used for sitemap links |
 | `CORS_ORIGINS` | no | JSON list of allowed origins; only needed if the web app calls the API cross-origin |
 | `GROQ_API_KEY` | no | Turns on LLM summaries and drafts; empty means the rules fallback |
-| `GROQ_MODEL` | no | Defaults to `llama-3.1-8b-instant` |
+| `GROQ_MODEL` | no | Defaults to `qwen/qwen3.8-27b` |
 | `SEED_PASSWORD` | no | Password for seeded demo users (defaults to the demo password below) |
 | `TEST_DATABASE_URL` | tests | Database used by `pytest` (defaults to local `dealer_test`) |
 

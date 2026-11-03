@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     public_site_url: str = "http://localhost:5173"
 
     groq_api_key: str | None = None
-    groq_model: str = "llama-3.1-8b-instant"
+    groq_model: str = "qwen/qwen3.8-27b"
     ai_timeout_seconds: float = 8.0
 
     lead_sla_minutes: int = 5
